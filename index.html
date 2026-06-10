@@ -239,13 +239,18 @@
     display: flex; align-items: center; justify-content: center;
     color: var(--accent); font-size: 18px;
   }
-  .project-link-icon { color: var(--text3); transition: color 0.2s; font-size: 16px; }
+  .project-link-icon { position: absolute; top: 24px; right: 24px; color: var(--text3); transition: color 0.2s; font-size: 16px; }
   .project-card:hover .project-link-icon { color: var(--accent); }
   .project-name { font-family: var(--font-head); font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; letter-spacing: -0.02em; font-style: italic; }
   .project-desc { font-size: 14px; color: var(--text2); line-height: 1.65; margin-bottom: 20px; }
   .project-meta { display: flex; align-items: center; gap: 16px; font-size: 12px; color: var(--text3); }
   .meta-item { display: flex; align-items: center; gap: 5px; }
   .meta-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+  /* Evolv feature pills */
+  .project-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .feature-pill { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
+  .feature-pill i { color: var(--accent); font-size: 13px; width: 14px; flex-shrink: 0; }
 
   /* STACK */
   .stack-categories { display: flex; flex-direction: column; gap: 44px; }
@@ -323,6 +328,7 @@
     .sobre-grid { grid-template-columns: 1fr; gap: 40px; }
     .projects-grid { grid-template-columns: 1fr; }
     .project-card.featured { grid-column: span 1; grid-template-columns: 1fr; }
+    .project-card.featured .featured-visual { display: none; }
     .certs-grid { grid-template-columns: 1fr 1fr; }
     .contact-inner { grid-template-columns: 1fr; gap: 40px; }
     .form-row { grid-template-columns: 1fr; }
@@ -406,7 +412,7 @@
         </div>
       </div>
       <div class="hero-avatar">
-        <img src="foto.jpg" alt="Jhonatan Oliveira">
+        <img src="foto.png" alt="Jhonatan Oliveira">
       </div>
     </div>
   </div>
@@ -455,7 +461,7 @@
         <div class="sobre-info">
           <div class="info-row">
             <i class="fa-solid fa-location-dot"></i>
-            Juiz de Fora, MG — Brasil
+            Juiz de Fora, MG - Brasil
           </div>
           <div class="info-row">
             <i class="fa-regular fa-envelope"></i>
@@ -514,7 +520,7 @@
         <div class="tl-company">Fundação CAEd · Juiz de Fora</div>
         <div class="tl-header">
           <div class="tl-role">Líder de gestão de dados</div>
-          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Jan 2024 — Presente</div>
+          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Jan 2024 - Presente</div>
         </div>
         <ul class="tl-list">
           <li>Recebimento e tratamento de dados educacionais</li>
@@ -537,7 +543,7 @@
         <div class="tl-company">Fundação CAEd · Juiz de Fora</div>
         <div class="tl-header">
           <div class="tl-role">Analista de Dados</div>
-          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Jan 2022 — Abr 2024</div>
+          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Jan 2022 - Abr 2024</div>
         </div>
         <ul class="tl-list">
           <li>Obtenção e manutenção de dados de fontes primárias e secundárias em grandes volumes</li>
@@ -559,8 +565,8 @@
         <div class="timeline-dot"></div>
         <div class="tl-company">Hospital Albert Sabin · Juiz de Fora</div>
         <div class="tl-header">
-          <div class="tl-role">Analista de Suporte — Sistema Tasy</div>
-          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Set 2021 — Jan 2022</div>
+          <div class="tl-role">Analista de Suporte - Sistema Tasy</div>
+          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Set 2021 - Jan 2022</div>
         </div>
         <ul class="tl-list">
           <li>Suporte especializado aos usuários do sistema hospitalar Philips Tasy</li>
@@ -579,7 +585,7 @@
         <div class="tl-company">LBC Sistemas · Juiz de Fora</div>
         <div class="tl-header">
           <div class="tl-role">Auxiliar de Suporte</div>
-          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Mar 2021 — Set 2021</div>
+          <div class="tl-period"><i class="fa-regular fa-calendar"></i> Mar 2021 - Set 2021</div>
         </div>
         <ul class="tl-list">
           <li>Atendimento e resolução de chamados técnicos relacionados ao sistema LBC</li>
@@ -605,31 +611,44 @@
     <p class="section-sub">Projetos práticos que demonstram minhas habilidades em dados e desenvolvimento.</p>
     <div class="projects-grid">
 
-      <a href="https://github.com/JhonatanDev0" class="project-card featured" target="_blank" rel="noopener">
+      <!-- EVOLV - projeto principal em destaque -->
+      <a href="https://github.com/JhonatanDev0/evolv" class="project-card featured" target="_blank" rel="noopener">
         <div>
           <div class="project-header">
-            <div class="project-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <div class="project-icon"><i class="fa-solid fa-dumbbell"></i></div>
             <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
           </div>
-          <h3 class="project-name">Adicione seu projeto principal</h3>
+          <h3 class="project-name">EVOLV - App de Gestão de Treinos</h3>
           <p class="project-desc">
-            Descreva aqui o projeto que mais orgulha — análise exploratória, dashboard interativo, pipeline de dados, modelo preditivo ou automação. Use este espaço para mostrar seu melhor trabalho.
+            PWA completo para registro e acompanhamento de treinos em academia. Roda direto no navegador, funciona offline, sincroniza entre dispositivos via Firebase e não requer instalação. Construído sem frameworks, com ~4 000 linhas de JavaScript vanilla.
           </p>
+          <div class="project-features">
+            <div class="feature-pill"><i class="fa-solid fa-wifi"></i> Modo offline com IndexedDB e Service Worker</div>
+            <div class="feature-pill"><i class="fa-solid fa-rotate"></i> Sync entre dispositivos via Firebase Realtime DB</div>
+            <div class="feature-pill"><i class="fa-solid fa-chart-bar"></i> Stats, personal records e gráfico de frequência semanal</div>
+            <div class="feature-pill"><i class="fa-solid fa-file-export"></i> Export JSON e CSV compatível com Excel / Sheets</div>
+          </div>
           <div class="tl-tags" style="margin-bottom:16px">
-            <span class="tag">Python</span>
-            <span class="tag">SQL</span>
-            <span class="tag purple">Pandas</span>
-            <span class="tag cyan">Looker Studio</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Firebase</span>
+            <span class="tag purple">IndexedDB</span>
+            <span class="tag purple">Service Worker</span>
+            <span class="tag cyan">PWA</span>
+            <span class="tag cyan">Chart.js</span>
           </div>
           <div class="project-meta">
             <div class="meta-item"><div class="meta-dot"></div> Em produção</div>
+            <div class="meta-item"><i class="fa-brands fa-github" style="font-size:12px"></i> Open Source</div>
           </div>
         </div>
-        <div style="width:180px;height:150px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text3);font-size:56px;">
-          <i class="fa-solid fa-chart-area"></i>
+        <div class="featured-visual" style="width:180px;height:220px;background:var(--bg2);border-radius:var(--radius);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;gap:16px;padding:20px;">
+          <div style="font-size:48px;color:var(--accent);opacity:0.7;"><i class="fa-solid fa-dumbbell"></i></div>
+          <div style="font-family:var(--font-head);font-size:22px;font-weight:700;font-style:italic;color:var(--text2);letter-spacing:-0.03em;">EVOLV</div>
+          <div style="font-size:11px;color:var(--text3);text-align:center;line-height:1.5;">Gestão de Treinos<br>PWA · Offline First</div>
         </div>
       </a>
 
+      <!-- Placeholder 2 -->
       <a href="https://github.com/JhonatanDev0" class="project-card" target="_blank" rel="noopener">
         <div class="project-header">
           <div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
@@ -643,24 +662,25 @@
           <span class="tag cyan">Databricks</span>
         </div>
         <div class="project-meta">
-          <div class="meta-item"><div class="meta-dot"></div> Open Source</div>
+          <div class="meta-item"><div class="meta-dot"></div> Em breve</div>
         </div>
       </a>
 
+      <!-- Placeholder 3 -->
       <a href="https://github.com/JhonatanDev0" class="project-card" target="_blank" rel="noopener">
         <div class="project-header">
           <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
           <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
         </div>
         <h3 class="project-name">Modelo Preditivo</h3>
-        <p class="project-desc">Adicione um projeto de machine learning — classificação, regressão, clusterização ou séries temporais. Mostre os resultados e métricas obtidos.</p>
+        <p class="project-desc">Adicione um projeto de machine learning - classificação, regressão, clusterização ou séries temporais. Mostre os resultados e métricas obtidos.</p>
         <div class="tl-tags" style="margin-bottom:16px">
           <span class="tag">Scikit-learn</span>
           <span class="tag purple">Python</span>
           <span class="tag cyan">BigQuery</span>
         </div>
         <div class="project-meta">
-          <div class="meta-item"><div class="meta-dot"></div> Open Source</div>
+          <div class="meta-item"><div class="meta-dot"></div> Em breve</div>
         </div>
       </a>
 
@@ -735,21 +755,21 @@
         <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="cert-issuer">Universidade Anhembi Morumbi</div>
         <div class="cert-name">Bacharelado em Estatística</div>
-        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Jan 2024 — Cursando</div>
+        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Jan 2024 - Cursando</div>
       </div>
 
       <div class="cert-card">
         <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="cert-issuer">XP Educação</div>
         <div class="cert-name">MBA em Ciência de Dados</div>
-        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Fev 2022 — Dez 2022</div>
+        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Fev 2022 - Dez 2022</div>
       </div>
 
       <div class="cert-card">
         <div class="cert-icon"><i class="fa-solid fa-graduation-cap"></i></div>
         <div class="cert-issuer">Estácio</div>
         <div class="cert-name">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
-        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Ago 2018 — Jul 2021</div>
+        <div class="cert-date"><i class="fa-regular fa-calendar"></i> Ago 2018 - Jul 2021</div>
       </div>
 
       <div class="cert-card">
@@ -809,7 +829,7 @@
           Estou aberto a novas oportunidades em Dados, seja como Analista, Cientista ou Engenheiro de Dados. Preencha o formulário ou me encontre nas redes abaixo.
         </p>
         <form action="https://formsubmit.co/jhonatandev0@gmail.com" method="POST" class="contact-form">
-          <input type="hidden" name="_subject" value="Contato via portfólio — Jhonatan Oliveira">
+          <input type="hidden" name="_subject" value="Contato via portfólio - Jhonatan Oliveira">
           <input type="hidden" name="_captcha" value="false">
           <div class="form-row">
             <div class="form-group">
