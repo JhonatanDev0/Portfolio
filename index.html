@@ -232,7 +232,7 @@
   .project-card:hover { border-color: var(--line2); transform: translateY(-2px); }
   .project-card:hover::before { opacity: 1; }
   .project-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; background: linear-gradient(135deg, rgba(127,255,212,0.03) 0%, var(--bg3) 100%); }
-  .project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+  .project-header { display: flex; align-items: center; margin-bottom: 16px; }
   .project-icon {
     width: 44px; height: 44px; border-radius: 10px;
     background: rgba(127,255,212,0.1); border: 1px solid rgba(127,255,212,0.15);
@@ -247,10 +247,20 @@
   .meta-item { display: flex; align-items: center; gap: 5px; }
   .meta-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
 
-  /* Evolv feature pills */
+  /* Feature pills */
   .project-features { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
   .feature-pill { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--text2); }
   .feature-pill i { color: var(--accent); font-size: 13px; width: 14px; flex-shrink: 0; }
+
+  /* Módulos badge do SDA */
+  .module-badges { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
+  .module-badge {
+    font-size: 11px; padding: 3px 9px; border-radius: 6px;
+    background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.15);
+    color: var(--accent2); display: flex; align-items: center; gap: 5px;
+  }
+  .module-badge.active { background: rgba(127,255,212,0.08); border-color: rgba(127,255,212,0.15); color: var(--accent); }
+  .module-badge i { font-size: 9px; }
 
   /* STACK */
   .stack-categories { display: flex; flex-direction: column; gap: 44px; }
@@ -536,7 +546,7 @@
           <span class="tag cyan">Big Data</span>
           <span class="tag">Análise Estatística</span>
         </div>
-      </div>      
+      </div>
 
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -611,13 +621,13 @@
     <p class="section-sub">Projetos práticos que demonstram minhas habilidades em dados e desenvolvimento.</p>
     <div class="projects-grid">
 
-      <!-- EVOLV - projeto principal em destaque -->
+      <!-- EVOLV - destaque -->
       <a href="https://github.com/JhonatanDev0/evolv" class="project-card featured" target="_blank" rel="noopener">
         <div>
           <div class="project-header">
             <div class="project-icon"><i class="fa-solid fa-dumbbell"></i></div>
-            <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
           </div>
+          <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
           <h3 class="project-name">EVOLV - App de Gestão de Treinos</h3>
           <p class="project-desc">
             PWA completo para registro e acompanhamento de treinos em academia. Roda direto no navegador, funciona offline, sincroniza entre dispositivos via Firebase e não requer instalação. Construído sem frameworks, com ~4 000 linhas de JavaScript vanilla.
@@ -648,39 +658,57 @@
         </div>
       </a>
 
-      <!-- Placeholder 2 -->
+      <!-- SDA -->
       <a href="https://github.com/JhonatanDev0" class="project-card" target="_blank" rel="noopener">
         <div class="project-header">
-          <div class="project-icon"><i class="fa-solid fa-arrows-rotate"></i></div>
-          <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
+          <div class="project-icon" style="background:rgba(167,139,250,0.1);border-color:rgba(167,139,250,0.15);color:var(--accent2);">
+            <i class="fa-solid fa-database"></i>
+          </div>
         </div>
-        <h3 class="project-name">Pipeline de Dados</h3>
-        <p class="project-desc">Adicione aqui um projeto de pipeline ETL, automação de coleta ou integração de fontes de dados. Detalhe as tecnologias e o impacto gerado.</p>
+        <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
+        <h3 class="project-name">SDA - Sistema de Dados Administrativos</h3>
+        <p class="project-desc">Plataforma web full-stack para centralizar e automatizar o ciclo de vida dos dados administrativos na Fundação CAEd - da disponibilização de leiautes à extração final para o Censo Administrativo.</p>
+        <div class="project-features">
+          <div class="feature-pill"><i class="fa-solid fa-file-excel"></i> Biblioteca de leiautes com download autenticado</div>
+          <div class="feature-pill"><i class="fa-brands fa-jira"></i> Integração com Jira Cloud para gestão de chamados</div>
+          <div class="feature-pill"><i class="fa-solid fa-users-gear"></i> Gerenciamento de usuários com SSO Google</div>
+        </div>
         <div class="tl-tags" style="margin-bottom:16px">
-          <span class="tag">Apache Spark</span>
-          <span class="tag purple">Delta Lake</span>
-          <span class="tag cyan">Databricks</span>
+          <span class="tag purple">Python · Flask</span>
+          <span class="tag purple">React 18</span>
+          <span class="tag">SQL Server</span>
+          <span class="tag cyan">JWT · SSO Google</span>
+          <span class="tag cyan">Jira Cloud API</span>
         </div>
         <div class="project-meta">
-          <div class="meta-item"><div class="meta-dot"></div> Em breve</div>
+          <div class="meta-item"><div class="meta-dot" style="background:var(--accent2)"></div> Em desenvolvimento</div>
+          <div class="meta-item"><i class="fa-solid fa-building" style="font-size:11px"></i> Uso interno</div>
         </div>
       </a>
 
-      <!-- Placeholder 3 -->
+      <!-- Monitor de Ações -->
       <a href="https://github.com/JhonatanDev0" class="project-card" target="_blank" rel="noopener">
         <div class="project-header">
-          <div class="project-icon"><i class="fa-solid fa-robot"></i></div>
-          <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
+          <div class="project-icon" style="background:rgba(103,232,249,0.1);border-color:rgba(103,232,249,0.15);color:var(--accent3);">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
         </div>
-        <h3 class="project-name">Modelo Preditivo</h3>
-        <p class="project-desc">Adicione um projeto de machine learning - classificação, regressão, clusterização ou séries temporais. Mostre os resultados e métricas obtidos.</p>
+        <i class="fa-solid fa-arrow-up-right-from-square project-link-icon"></i>
+        <h3 class="project-name">Monitor de Ações com Alerta por E-mail</h3>
+        <p class="project-desc">Automação de monitoramento financeiro que consulta preços via Yahoo Finance e dispara alertas por e-mail quando uma ação ultrapassa limites definidos pelo usuário.</p>
+        <div class="project-features">
+          <div class="feature-pill"><i class="fa-solid fa-bell"></i> Alertas de limite máximo e mínimo por ação</div>
+          <div class="feature-pill"><i class="fa-solid fa-clock-rotate-left"></i> Verificação automática a cada hora via schedule</div>
+        </div>
         <div class="tl-tags" style="margin-bottom:16px">
-          <span class="tag">Scikit-learn</span>
-          <span class="tag purple">Python</span>
-          <span class="tag cyan">BigQuery</span>
+          <span class="tag cyan">Python</span>
+          <span class="tag cyan">yfinance</span>
+          <span class="tag">schedule</span>
+          <span class="tag purple">Automação</span>
         </div>
         <div class="project-meta">
-          <div class="meta-item"><div class="meta-dot"></div> Em breve</div>
+          <div class="meta-item"><div class="meta-dot" style="background:var(--accent3)"></div> Open Source</div>
+          <div class="meta-item"><i class="fa-solid fa-chart-line" style="font-size:11px;color:var(--accent3)"></i> Finanças</div>
         </div>
       </a>
 
@@ -866,7 +894,7 @@
           <i class="fa-solid fa-arrow-right social-arrow"></i>
         </a>
 
-        <a href="https://linkedin.com/in/jhonatandev" class="social-link" target="_blank" rel="noopener" style="color:inherit">
+        <a href="https://www.linkedin.com/in/jhonatandev/" class="social-link" target="_blank" rel="noopener" style="color:inherit">
           <div class="social-icon li"><i class="fa-brands fa-linkedin"></i></div>
           <div class="social-info">
             <div class="social-name">LinkedIn</div>
